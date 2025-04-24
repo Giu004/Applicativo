@@ -1,29 +1,48 @@
-package model;
+package Model;
 
-/**
- * The type Utente.
- */
 public class Utente {
-    private final String login;
+
+    // variabili
+    protected String login;
     private String password;
 
-    /**
-     * Instantiates a new Utente.
-     *
-     * @param login    the login
-     * @param password the password
-     */
-    public Utente(String login, String password) {
-        this.login = login;
-        this.password = password;
+    //costruttore
+    protected Utente(String log, String pass) {
+        this.login = log;
+        this.password = pass;
     }
 
-    /**
-     * Gets login.
-     *
-     * @return the login
-     */
+    //metodi
+    public void setLogin(String log) {
+        this.login = log;
+    }
+
+    public void setPassword(String pass) {
+        this.password = pass;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
     public String getLogin() {
         return login;
     }
+
+    //signIn
+    protected boolean singIn(String log, String pass) {
+        if (login.equals(log) && password.equals(pass)) {
+            System.out.println("Accesso eseguito : benvenuto! :)");
+            return true;
+        } else {
+            System.out.println("Accesso fallito : nome utente o password errati");
+            return false;
+        }
+    }
+
+    //stampa
+    public void stampa() {
+        System.out.println("Sono l'utente " + login+ " " + password);
+    }
+
 }
